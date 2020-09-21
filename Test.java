@@ -23,24 +23,45 @@ class Test {
         int  [] nativetiga;
         Test t = new Test();
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter the size of array: ");
-        int size = input.nextInt();
+        try{
+          System.out.print("Enter the size of array: ");
+          int size = input.nextInt();
 
-        //Get auto generated character
-        nativesatu = t.alphabet(size);
-        for(int i=0; i<size; i++){
-          System.out.print(nativesatu[i]);
+          //Get auto generated character
+          nativesatu = t.alphabet(size);
+          System.out.print("Random-Generated Character:");
+          for(int i=0; i<size; i++){
+            System.out.print(nativesatu[i]);
+          }
+          //native dua Get user input for character
+          nativedua = t.getNativeDua(size);
+          System.out.print("\nYour-Generated Character:");
+          for(int i=0; i<size; i++){
+            System.out.print(nativedua[i]);
+          }
+          /*Use this if you want get user input for size again
+            System.out.print("Enter the size of array2: ");
+            int size2 = input.nextInt();
+            nativedua = t.getNativeDua(size);
+            System.out.print("\nYour-Generated Character:");
+            for(int i=0; i<size; i++){
+              System.out.print(nativedua[i]);
+            }
+          */
+
+          //native tiga
+          nativetiga = t.getNativeTiga(nativesatu, nativedua, size);
+          System.out.print("\nThe Result:");
+          for(int i=0; i<size; i++){
+            System.out.print(nativetiga[i]);
+          }
         }
-        //native dua
-        nativedua = t.getNativeDua(size);
-
-
-        //native tiga
-        nativetiga = t.getNativeTiga(nativesatu, nativedua, size);
-        System.out.print("The Result:");
-        for(int i=0; i<size; i++){
-          System.out.print(nativetiga[i]);
+        catch(Exception e){
+          System.out.print("Please Re-Run Program and Enter Valid Size");
         }
+
+
+
 
     }
 }
