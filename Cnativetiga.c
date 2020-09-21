@@ -15,10 +15,13 @@ JNIEXPORT jintArray JNICALL Java_Test_getNativeTiga(JNIEnv *env, jobject obj,jin
   int     cuba[size];
   int     i=0;
 
+  //Retrieve The length of Array
   jsize len = (*env)->GetArrayLength(env, satu);
+  //Obtain the Copy of arrays
   (*env) -> GetCharArrayRegion(env, satu, 0, len, arraysatu);
   (*env) -> GetCharArrayRegion(env, dua, 0, len, arraydua);
 
+  //Algorithm to Generate Result
   do{
     sementara1[i] = arraysatu[i];
     sementara2[i] = arraydua[i];
@@ -31,7 +34,9 @@ JNIEXPORT jintArray JNICALL Java_Test_getNativeTiga(JNIEnv *env, jobject obj,jin
     i++;
   }while(i<size);
 
+  // create new array with the given length
   jintArray hasil = (*env)->NewIntArray(env, size);
+  // update the new created array
   (*env)->SetIntArrayRegion(env, hasil, 0, size, (jint *)cuba);
 
   return hasil;
